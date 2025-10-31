@@ -1,5 +1,15 @@
 local filetype = { "filetype", icon_only = true }
 
+local macro_recording = {
+  function()
+    local reg = vim.fn.reg_recording()
+    if reg == "" then
+      return ""
+    end
+    return "recording @" .. reg
+  end,
+}
+
 local lsp_status = {
   "lsp_status",
   icon = "", -- f013
@@ -58,7 +68,7 @@ require('lualine').setup({
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = {},
+    lualine_b = { macro_recording },
     lualine_c = { "filename", lsp_status},
     lualine_x = { diff, diagnostics, filetype },
     lualine_y = {},

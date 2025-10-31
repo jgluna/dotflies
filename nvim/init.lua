@@ -16,7 +16,7 @@ vim.g.maplocalleader = " "
 vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.cursorline = true
-vim.opt.completeopt = { "menuone", "popup", "preview" }
+vim.opt.completeopt = { "menuone", "noselect", "popup", "preview" }
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.lsp.log.set_level(vim.log.levels.WARN)

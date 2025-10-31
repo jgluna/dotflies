@@ -20,6 +20,20 @@ vim.lsp.config("lua_ls",
     }
   })
 
+vim.lsp.config("pyright", {
+  settings = {
+    python = {
+      analysis = {
+        -- Faster startup by limiting analysis scope
+        diagnosticMode = "openFilesOnly",  -- Only analyze open files, not entire workspace
+        typeCheckingMode = "basic",        -- "off", "basic", or "strict"
+        autoSearchPaths = false,           -- Don't auto-search for packages
+        useLibraryCodeForTypes = false,    -- Don't analyze library code for types
+      }
+    }
+  }
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
