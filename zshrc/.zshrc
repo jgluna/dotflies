@@ -64,7 +64,7 @@ ZSH_THEME="robbyrussell"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-ZSH_CUSTOM=~/.config/dotflies/zsh
+# ZSH_CUSTOM=~/.config/dotflies/zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -124,4 +124,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 
-eval "$(/home/juan-luna/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
