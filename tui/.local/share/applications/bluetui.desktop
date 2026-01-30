@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Bluetui
+Comment=Bluetooth TUI
+Exec=bluetui
+Terminal=true
+Categories=Settings;Hardware;

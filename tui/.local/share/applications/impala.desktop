@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Impala
+Comment=TUI for iwd
+Exec=impala
+Terminal=true
+Categories=Settings;Network;

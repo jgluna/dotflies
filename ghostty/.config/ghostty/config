@@ -1,0 +1,18 @@
+theme = catppuccin-mocha.conf
+font-size = 15
+cursor-style = underline
+cursor-invert-fg-bg = true
+background-opacity =0.91
+
+# SHADERS
+# custom-shader = ./shaders/cursor_blaze.glsl
+custom-shader = ./shaders/cursor_blaze_tapered.glsl
+# custom-shader = ./shaders/cursor_frozen.glsl
+# custom-shader = ./shaders/manga_slash.glsl
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+
+keybind = ctrl+shift+d=new_split:down
+keybind = ctrl+d=new_split:right
+keybind = shift+enter=text:\x1b\r

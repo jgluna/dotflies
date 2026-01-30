@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Lazydocker
+Comment=The simple terminal UI for docker containers
+Exec=lazydocker
+Terminal=true
+Categories=Development;System;
