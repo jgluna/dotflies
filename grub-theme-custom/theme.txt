@@ -1,0 +1,67 @@
+# GRUB Theme for HiDPI 3840x2160
+# Background color: #1E1E2E
+
+# Desktop settings
+desktop-color: "#1E1E2E"
+
+# Title settings
+title-text: ""
+title-font: "dejavu_sans_bold_48"
+title-color: "#CDD6F4"
+
+# Terminal settings
+terminal-font: "dejavu_sans_mono_32"
+terminal-box: "terminal_box_*.png"
+
+# Boot menu box - centered for 3840x2160
++ boot_menu {
+    left = 25%
+    width = 50%
+    top = 30%
+    height = 40%
+
+    item_font = "dejavu_sans_36"
+    item_color = "#CDD6F4"
+    selected_item_font = "dejavu_sans_bold_36"
+    selected_item_color = "#89B4FA"
+
+    item_height = 64
+    item_padding = 20
+    item_spacing = 10
+
+    icon_width = 64
+    icon_height = 64
+
+    menu_pixmap_style = "menu_*.png"
+    selected_item_pixmap_style = "select_*.png"
+}
+
+# Progress bar
++ progress_bar {
+    id = "__timeout__"
+    left = 25%
+    width = 50%
+    top = 75%
+    height = 48
+
+    font = "dejavu_sans_32"
+    text_color = "#CDD6F4"
+    fg_color = "#89B4FA"
+    bg_color = "#313244"
+    border_color = "#45475A"
+
+    text = "@TIMEOUT_NOTIFICATION_LONG@"
+}
+
+# Label showing selected entry
++ label {
+    top = 82%
+    left = 0
+    width = 100%
+    height = 48
+    align = "center"
+    id = "__timeout__"
+    text = "Booting in %d seconds"
+    color = "#CDD6F4"
+    font = "dejavu_sans_32"
+}

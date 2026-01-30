@@ -1,0 +1,52 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces"],
+    "modules-right": ["pulseaudio", "battery", "clock", "tray"],
+
+    "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll":false,
+         "sort-by-name": true,
+         "format": " {icon} ",
+         "format-icons": {
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         },
+     },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%Y-%m-%d  %H:%M}"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+    "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    }
+}
