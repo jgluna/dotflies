@@ -125,3 +125,4 @@ eval "$(zoxide init --cmd cd zsh)"
 export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 
 eval "$(mise activate zsh)"
+source <(kubectl completion zsh)

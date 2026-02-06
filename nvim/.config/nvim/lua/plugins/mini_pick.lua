@@ -1,1 +1,1 @@
-return { 'nvim-mini/mini.pick', version = '*' }
+return { 'nvim-mini/mini.pick', version = '*', cmd = "Pick" }

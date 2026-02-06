@@ -3,7 +3,7 @@ vim.lsp.enable({
   "gopls",
   "html",
   "jsonls",
-  "pyright",   -- npm i -g pyright
+  "basedpyright",   -- npm i -g basedpyright
   "ts_ls",
   "lua_ls",
   "emmet-ls"
@@ -19,15 +19,14 @@ vim.lsp.config("lua_ls",
     }
   })
 
-vim.lsp.config("pyright", {
+vim.lsp.config("basedpyright", {
   settings = {
-    python = {
+    basedpyright = {
       analysis = {
-        -- Faster startup by limiting analysis scope
-        diagnosticMode = "openFilesOnly",  -- Only analyze open files, not entire workspace
-        typeCheckingMode = "basic",        -- "off", "basic", or "strict"
-        autoSearchPaths = false,           -- Don't auto-search for packages
-        useLibraryCodeForTypes = false,    -- Don't analyze library code for types
+        diagnosticMode = "openFilesOnly",
+        typeCheckingMode = "basic",
+        autoSearchPaths = false,
+        useLibraryCodeForTypes = false,
       }
     }
   }
