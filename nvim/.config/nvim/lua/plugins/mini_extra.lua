@@ -1,1 +1,1 @@
-return { 'nvim-mini/mini.extra', version = '*', dependencies = { 'nvim-mini/mini.pick' }, lazy = true }
+return { 'nvim-mini/mini.extra', version = '*', dependencies = { 'nvim-mini/mini.pick' }, opts = {} }

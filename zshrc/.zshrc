@@ -126,3 +126,11 @@ export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 
 eval "$(mise activate zsh)"
 source <(kubectl completion zsh)
+
+# pnpm
+export PNPM_HOME="/home/juan-luna/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

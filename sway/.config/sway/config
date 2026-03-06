@@ -34,19 +34,15 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output eDP-1 resolution 3840x2160 position 0,0
-output DP-1 resolution 3440x1440 position 3840,0
 ### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+### Lid switch
+bindswitch --reload --locked lid:on output eDP-1 disable, exec systemctl suspend
+bindswitch --reload --locked lid:off output eDP-1 enable
 
 ### Input configuration
 #
@@ -77,6 +73,16 @@ output DP-1 resolution 3440x1440 position 3840,0
 
     # Power menu
     bindsym $mod+Escape exec ~/.config/sway/scripts/power-menu.sh
+
+    # Alt+Tab window switcher
+    bindsym Mod1+Tab exec ~/.cargo/bin/swayr next-window all-workspaces
+    bindsym Mod1+Shift+Tab exec ~/.cargo/bin/swayr prev-window all-workspaces
+
+    # Screenshots
+    bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+    bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+    bindsym Ctrl+Print exec grim - | wl-copy
+    bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -225,5 +231,6 @@ bar swaybar_command waybar
 #   }
 # }
 exec foot --server
+exec ~/.cargo/bin/swayrd
 
 include /etc/sway/config.d/*
