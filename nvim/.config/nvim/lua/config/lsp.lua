@@ -1,43 +1,12 @@
 vim.lsp.enable({
-  "cssls",   -- npm i -g vscode-langservers-extracted
+  "basedpyright",
+  "cssls",
+  "emmet-ls",
   "gopls",
   "html",
   "jsonls",
-  "basedpyright",   -- npm i -g basedpyright
-  "ts_ls",
   "lua_ls",
-  "emmet-ls"
-})
-vim.lsp.config("lua_ls",
-  {
-    settings = {
-      Lua = {
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
-        }
-      }
-    }
-  })
-
-vim.lsp.config("basedpyright", {
-  settings = {
-    basedpyright = {
-      analysis = {
-        diagnosticMode = "openFilesOnly",
-        typeCheckingMode = "basic",
-        autoSearchPaths = false,
-        useLibraryCodeForTypes = false,
-      }
-    }
-  }
-})
-
-vim.lsp.config("gopls", {
-  settings = {
-    gopls = {
-      semanticTokens = true,
-    }
-  }
+  "ts_ls",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -51,8 +20,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename,          vim.tbl_extend('force', opts, { desc = 'Rename symbol' }))
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action,     vim.tbl_extend('force', opts, { desc = 'Code action' }))
     vim.keymap.set('n', '<leader>e',  vim.diagnostic.open_float,   vim.tbl_extend('force', opts, { desc = 'Open diagnostic float' }))
-    vim.keymap.set('n', ']d',         vim.diagnostic.goto_next,    vim.tbl_extend('force', opts, { desc = 'Next diagnostic' }))
-    vim.keymap.set('n', '[d',         vim.diagnostic.goto_prev,    vim.tbl_extend('force', opts, { desc = 'Prev diagnostic' }))
+    vim.keymap.set('n', ']d',         function() vim.diagnostic.jump({ count = 1 }) end,  vim.tbl_extend('force', opts, { desc = 'Next diagnostic' }))
+    vim.keymap.set('n', '[d',         function() vim.diagnostic.jump({ count = -1 }) end, vim.tbl_extend('force', opts, { desc = 'Prev diagnostic' }))
   end,
 })
 

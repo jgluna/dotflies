@@ -1,7 +1,7 @@
 vim.keymap.set(
   'n',
   '<leader>f',
-  function() require('conform').format({ lsp_fallback = true }) end,
+  function() require('conform').format({ lsp_format = 'fallback' }) end,
   { desc = 'Format document' }
 )
 vim.keymap.set('n', '<leader>w', ':write<CR>', { desc = 'Writes current buffer' })
